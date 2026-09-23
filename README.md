@@ -34,6 +34,30 @@ One multi-tenant platform covering the recruiting lifecycle — source → enric
 - **Lope MCP** — a hosted Model Context Protocol server with 27 tools and OAuth 2.1 capability-scoped grants, so Claude, ChatGPT, Cursor and Gemini can use the CRM directly
 - **Help center** — a 42-page public documentation site with a changelog of 13 releases between March and July 2026
 
+### Feature highlights
+
+| Ranked, shareable shortlists | Skill inference, with the receipts |
+| --- | --- |
+| ![Client shortlist ranking candidates with match percentages and the criteria behind the top candidate](assets/feature-ranked-shortlist.jpg) | ![Recreated skills panel: matched chips and skills inferred by Lope AI with the source quote](assets/feature-skill-inference.png) |
+| Every shortlisted candidate is evaluated against a versioned client brief, ranked and explained; one link shares a read-only client view with private notes hidden. 701 AI evaluations at 99.0% success; 68 shared links, 96 external views. | The last feature we shipped: Lope credits skills a profile proves in its own words and shows the quote. An LLM may only answer with a verbatim quote and a curated skill — 1,345 candidates gained evidence, 0 unverifiable quotes in audit. *Recreated from the product component with illustrative data.* |
+
+| From a job to a search in one step | Scattered signals, one searchable profile |
+| --- | --- |
+| ![Create job dialog generating an editable AI Scout brief from the job description](assets/feature-job-to-search.jpg) | ![Candidates to enrich from LinkedIn, GitHub or all sources](assets/feature-enrichment.jpg) |
+| Creating a job can prepare the search: Lope turns the job description into an editable AI Scout brief and lets you fine-tune every signal, with advanced weights, before searching. | LinkedIn, the Chrome extension, CVs (including bulk ZIP) and CSV become one enriched, indexed profile — 98.7% success over ~3,000 profiles. |
+
+<details>
+<summary><b>Everything else in the product</b></summary>
+
+- **Source** — AI Scout across your database, an external talent source, or both · Search Agent · search from a job description · Chrome extension for LinkedIn and Recruiter Lite, including bulk add · CSV import with field mapping · CV import including bulk ZIP · industry tagging from a company name · years of experience measured by job title · current, recent or full-career title matching
+- **Evaluate** — per-criterion match explanations and relevance bands · skill inference with source quotes · synonym- and composition-aware skill matching · must-have vs optional skills · candidate-fit verdict against a job · AI shortlist evaluation and ranking · side-by-side comparison of 2–4 candidates · salary bands with an explained position
+- **Interview** — Google and Microsoft calendar sync · meeting bot for Meet and Teams (auto-join, custom name and avatar, many languages including Greek) · speaker-diarized transcripts · templated, editable AI reports · interview chat with verified citations · PDF export and transcript download
+- **Organize and collaborate** — Workspace → Teamspace → Client → Job hierarchy · public/private permissions and roles · team invitations · 7-stage pipeline as a table and Kanban board · custom candidate fields · comments, @mentions and activity · read-only links for shortlists, searches and interviews
+- **Know your market** — Companies (where your talent works, client badges, firmographics) · candidate tracking across 8 change types · in-app notifications and email digests · one candidate sheet for LinkedIn, GitHub and CV data
+- **Platform** — Lope MCP with 27 tools · API keys · guided onboarding and product tours · help center and public changelog
+
+</details>
+
 ## See it in action
 
 These videos were recorded on the live product in July 2026 and sent to our customers as onboarding material. Candidate names and photos are blurred.
@@ -108,6 +132,26 @@ flowchart LR
   Web --> LLM["LLMs routed by cost + OCR"]
   Web --> Talent["External talent API"]
 ```
+
+## Built with
+
+64 technologies and services across the three repositories and the production setup.
+
+![Logos of the technologies and services Lope was built with, grouped by area](assets/built-with.png)
+
+<details>
+<summary>Text list</summary>
+
+- **Product & interface** — Next.js, React, TypeScript, Tailwind CSS, Radix UI, shadcn/ui, HeroUI, TanStack Query & Table, Framer Motion, React Hook Form, Zod, Lottie, Tiptap, Zustand
+- **Back end & data** — Node.js, Fastify, Supabase (Postgres, Auth, Realtime, Storage), PostgreSQL with RLS and pg_cron, Deno edge functions, Python, FastAPI, Milvus, MinIO, etcd
+- **AI & search** — OpenAI (GPT-4o, GPT-4.1, embeddings), Mistral AI (OCR), Hugging Face (JobBERT, cross-encoder), PyTorch, Model Context Protocol, Gladia, Langfuse, Parallel AI
+- **Data & integrations** — LinkedIn (via Apify), Apify, CoreSignal, Skribby, Google Calendar, Google Meet, Microsoft Teams, Microsoft Graph, GitHub, Chrome Web Store, levels.fyi, GeoNames
+- **Infrastructure & operations** — Netlify, Hetzner (2 VMs), Cloudflare Tunnel, Docker, Linux/systemd, GitHub Actions, Bunny CDN
+- **Customers & communication** — PostHog, Resend, Intercom, Slack, Mintlify
+- **Quality & tooling** — Vitest, Playwright, ESLint, Nx, Git
+- **AI-assisted development** — Claude Code, Codex, Cursor
+
+</details>
 
 ## Selected technical decisions
 
