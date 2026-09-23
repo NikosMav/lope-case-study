@@ -1,5 +1,9 @@
 # Lope
 
+[![Lope — AI-native recruitment CRM case study](assets/social-card.png)](https://nikosmav.github.io/lope-case-study/)
+
+**[View the full interactive case study →](https://nikosmav.github.io/lope-case-study/)** — videos play inline there.
+
 AI-native recruitment CRM that turns a role brief into a ranked, explainable candidate shortlist — built by a team of three co-founders and run in production with recruiting agencies.
 
 - **Project period:** March 2025 – September 2026
