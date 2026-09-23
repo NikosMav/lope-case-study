@@ -9,10 +9,17 @@ AI-native recruitment CRM that turns a role brief into a ranked, explainable can
 - **Project period:** March 2025 – September 2026
 - **Team:** Nikos Mavrapidis ([@NikosMav](https://github.com/NikosMav)), Dimitrios Foteinos ([@dfwteinos](https://github.com/dfwteinos)), Anastasios Melidonis ([@Anastasios084](https://github.com/Anastasios084))
 - **Status:** Paused in September 2026; the production service has been wound down
+- **Links:** [withlope.com](https://www.withlope.com/) · [Lope on LinkedIn](https://www.linkedin.com/company/withlope)
 
 [![AI Scout: from a plain-language brief to an explained shortlist](assets/poster-ai-scout.jpg)](assets/videos/ai-scout.mp4)
 
 [Watch AI Scout in action (2:15)](assets/videos/ai-scout.mp4)
+
+### The landing page
+
+[![The withlope.com landing page: 'Candidate search, better than ever' with a live demo ranking a candidate at 92% relevance and explaining why](assets/landing-hero.jpg)](https://www.withlope.com/)
+
+*[withlope.com](https://www.withlope.com/), captured 23 September 2026 — the hero demo turns a brief into a ranked, explained candidate.*
 
 ## The idea
 
