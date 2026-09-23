@@ -141,17 +141,6 @@ td.r,th.r{text-align:right}
 .legend{display:flex;gap:16px;font-size:13px;color:var(--muted);flex-wrap:wrap}
 .legend i{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-1px;margin-right:6px}
 
-/* timeline */
-.timeline{display:grid;gap:0}
-.tl{--dcol:132px;display:grid;grid-template-columns:var(--dcol) 20px 1fr;column-gap:14px;position:relative;padding-bottom:22px}
-.tl:last-child{padding-bottom:0}
-.tl::before{content:"";position:absolute;z-index:1;left:calc(var(--dcol) + 18px);top:5px;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--brand)}
-.tl.key::before{border-color:transparent;background:var(--grad) border-box}
-.tl::after{content:"";position:absolute;left:calc(var(--dcol) + 23px);top:17px;bottom:-5px;width:2px;background:var(--line)}
-.tl:last-child::after{display:none}
-.tl .d{grid-column:1;font-family:var(--mono);font-size:13px;line-height:22px;color:var(--muted);text-align:right;white-space:nowrap}
-.tl p{grid-column:3;font-size:15px;line-height:22px}
-.tl p span{color:var(--muted)}
 
 /* lessons */
 .lessons{display:grid;gap:0;counter-reset:l;border-top:1px solid var(--line)}
@@ -319,10 +308,6 @@ footer code{font-family:var(--mono);font-size:12.5px}
   .frow{grid-template-columns:120px 1fr 40px}
   .cadence em{display:none}
   .cadence-x span:nth-child(even){visibility:hidden}
-  .tl{--dcol:0px;grid-template-columns:20px 1fr;column-gap:12px}
-  .tl::before{left:4px}
-  .tl::after{left:9px}
-  .tl .d,.tl p{grid-column:2;text-align:left}
   .reel,.gallery{grid-template-columns:1fr}
   .lrow{grid-template-columns:1fr auto}
   .lrow .ltrack{grid-column:1 / -1;grid-row:2}
@@ -594,20 +579,6 @@ footer code{font-family:var(--mono);font-size:12.5px}
     <div class="decision"><h3>Production discipline</h3><p>Long-running work runs as background jobs. Both Hetzner VMs ship immutable, commit-addressed releases with health checks and rollback, key-only SSH and closed database ports.</p></div>
   </div>
   <p class="intro">Three repositories (platform, search engine, help center) · <b>1,819</b> commits · ~350k lines of TypeScript and Python · <b>1,272</b> automated tests.</p>
-</section>
-
-<section aria-labelledby="timeline">
-  <h2 id="timeline">Timeline</h2>
-  <div class="timeline">
-    <div class="tl"><span class="d">Mar 2025</span><p>First commit. <span>Candidate table, auth, workspace model.</span></p></div>
-    <div class="tl"><span class="d">May–Jun 2025</span><p>Meeting bot and Google Calendar sync.</p></div>
-    <div class="tl"><span class="d">Sep–Oct 2025</span><p>Enrichment pipeline, CV parsing, Kanban, Chrome extension.</p></div>
-    <div class="tl key"><span class="d">Nov 2025</span><p>AI Scout and shortlists ship; the search engine repository starts.</p></div>
-    <div class="tl key"><span class="d">Mar 2026</span><p>Public launch; first external recruiters sign up.</p></div>
-    <div class="tl"><span class="d">Apr–Jun 2026</span><p>External and mixed search, search from a job, Lope MCP.</p></div>
-    <div class="tl key"><span class="d">Jul 2026</span><p>Design-partner agency onboarded; Search Agent, Companies, interview collaboration, skill inference. <span>Busiest month: 253 commits.</span></p></div>
-    <div class="tl"><span class="d">Sep 2026</span><p>Paused, with the product intact and documented.</p></div>
-  </div>
 </section>
 
 <section aria-labelledby="lessons">
