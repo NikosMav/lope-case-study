@@ -32,6 +32,7 @@ One multi-tenant platform covering the recruiting lifecycle — source → enric
 - **Companies intelligence** — "recruit-from" company pages showing which of your candidates work there today
 - **Chrome extension** — a LinkedIn side panel, published on the Chrome Web Store
 - **Lope MCP** — a hosted Model Context Protocol server with 27 tools and OAuth 2.1 capability-scoped grants, so Claude, ChatGPT, Cursor and Gemini can use the CRM directly
+- **Help center** — a 42-page public documentation site with a changelog of 13 releases between March and July 2026
 
 ## See it in action
 
@@ -78,34 +79,45 @@ Active use was concentrated: most sign-ups tried the product once, while a desig
 
 A live benchmark against the search engine returned standard queries in **3.1–3.6 s** over a workspace-sized pool of 500 candidates, with top matches scoring 0.86–0.98 and zero errors across 103 requests. Industry-filtered and full-career-history queries were the expensive paths (11–14 s), and on a single CPU-only VM the engine served concurrent requests one at a time — acceptable for pilot load, and the clear next scaling step.
 
+Search quality kept improving after launch. **Evidence-based skill matching** credits skills a candidate describes in their own words, not only the ones they tagged: a deterministic extractor plus an LLM pass whose every answer must quote the profile verbatim and map to a curated vocabulary. 1,345 production candidates gained evidence, and audits found 0 unverifiable quotes and 0 off-vocabulary skills across 855 LLM-inferred matches, for about $0.50 of backfill. A curated **synonym and composition layer** ("JS" = JavaScript; "SQL Databases" = SQL + Databases, with guardrails) shipped behind a before/after evaluation harness.
+
 A controlled experiment on external search proved the "current + past role" query logic correct (every current-role result was also returned in current + past mode) and traced an apparent bug to non-deterministic LLM synonym generation, which we then pinned. The same run quantified an industry-filter leak — 7 of 11 results off-target — and validated the fix at 4 of 4 on-target.
 
 ## Architecture
 
 ```mermaid
 flowchart LR
-  Recruiter["Recruiter (web app)"] --> Web["Next.js 15 platform<br/>146 API routes"]
+  Recruiter["Recruiter (web app)"] --> Web["Next.js 15 on Netlify<br/>146 API routes"]
   Ext["Chrome extension"] --> Web
-  Agents["Claude · ChatGPT · Cursor · Gemini"] --> MCP["Hosted MCP server<br/>OAuth 2.1 · 27 tools"]
-  Web --> DB[("Postgres + Row-Level Security<br/>60+ tables")]
-  MCP --> DB
-  Web --> Worker["Durable job worker"]
-  Worker --> Search["Search engine<br/>JobBERT · 5 Milvus collections<br/>rank fusion"]
+  Agents["Claude · ChatGPT · Cursor · Gemini"] --> MCP
+  subgraph APIVM["API VM (Hetzner)"]
+    API["Fastify API"]
+    MCP["Hosted MCP<br/>OAuth 2.1 · 27 tools"]
+    Worker["Durable job worker"]
+  end
+  subgraph SearchVM["Search VM (Hetzner)"]
+    Rank["Ranking service (FastAPI)<br/>JobBERT · cross-encoder · Borda fusion"]
+    Milvus[("Milvus 2.6<br/>8 collections")]
+  end
+  Web --> DB[("Supabase Postgres<br/>RLS on 60+ tables")]
+  MCP --> API --> DB
+  Web --> Worker --> Rank --> Milvus
   DB --> Fn["Edge functions<br/>webhooks · scheduled jobs"]
   Fn --> Scrape["LinkedIn, company and<br/>school enrichment"]
   Fn --> Bot["Meeting bot · calendar push"]
-  Web --> LLM["LLMs (routed by cost)<br/>+ OCR"]
+  Web --> LLM["LLMs routed by cost + OCR"]
   Web --> Talent["External talent API"]
 ```
 
 ## Selected technical decisions
 
-- **Domain-specific retrieval.** Each candidate is embedded with JobBERT into five separate vector collections. Each criterion is searched on its own and fused by rank aggregation, so every result carries its own sub-scores — that is what makes the ranking explainable.
+- **Multi-signal, explainable retrieval.** Job titles are matched three ways at once — OpenAI `text-embedding-3-large`, JobBERT-v3 (a model trained on job titles) and BM25 keywords — fused with weighted reciprocal-rank fusion and reranked by a cross-encoder. Skills, location, experience and industry each have their own index: eight Milvus collections feed five scored dimensions, merged by grouped Borda rank aggregation. Every result keeps its per-dimension scores, which is what makes the ranking explainable.
 - **The LLM is never the control plane.** Search orchestration, the industry resolver and salary explanations share one pattern: code owns decisions, the model handles fuzzy language, and every output snaps back onto a validated value.
 - **Hallucination-proof where it matters.** Industries resolve exact → fuzzy → model-choosing-from-the-stored-taxonomy; salary figures are computed, never generated; interview-chat citations are checked server-side before they render.
 - **Multi-tenant all the way down.** Row-level security on every table, with public/private scope enforced through a chain of access functions from team space to interview, and vectors isolated per environment.
 - **Model routing by cost.** Small models classify, mid-size models extract, larger models reason, a dedicated model does OCR; content-hash caching means identical inputs are never billed twice.
-- **Production discipline.** Long-running work goes to lease-based background jobs instead of serverless calls; releases on the backend VM are immutable and commit-addressed.
+- **Production discipline.** Long-running work goes to lease-based background jobs instead of serverless calls. Two Hetzner VMs — product API and search — each run immutable, commit-addressed releases with health checks and rollback, key-only SSH, firewalls, internal database ports closed to the internet, zero-downtime secret rotation, and a Cloudflare Tunnel in front of the API.
+- **The ranking service only ranks what it is given.** The product decides which candidates a caller may see and sends that allowlist; the search engine never authorizes tenants, and results are re-read from Postgres under workspace rules before they are shown.
 
 ## Selected screens
 
@@ -133,11 +145,18 @@ Where your candidates work today, which companies are already clients, and firmo
 
 ## Engineering scale
 
-1,743 commits across two repositories · 243 merged pull requests · ~350k lines of TypeScript and Python · 144 database migrations · 20 serverless functions · 1,272 automated tests.
+1,819 commits across three repositories (platform, search engine, help center) · 243 merged pull requests · ~350k lines of TypeScript and Python · 144 database migrations · 20 serverless functions · 1,272 automated tests.
 
 ## My role
 
-As one of three co-founders, I (Nikos) was the largest contributor to the web platform. I built the core recruiter workspace (data grid, Kanban pipeline, candidate sheet, comparison view, CSV import), designed the row-level-security access model that enforces public/private visibility across the product, built interview collaboration (comments with @mentions, edit history, activity, external share links) and Companies intelligence, improved ranking quality in the search engine, and owned much of the test suite, CI, deployment and production operations.
+I worked across the whole platform — product, front end, back end, data, AI search, infrastructure and documentation — and was the most active contributor in both code repositories (622 of 1,649 platform commits; 45 of 94 search-engine commits).
+
+- **Product and front end** — the recruiter workspace: candidate data grid and Kanban pipeline, candidate sheet, side-by-side comparison, CSV import, shortlist review and sharing, guided onboarding, Companies intelligence, interview collaboration, and the marketing site.
+- **Back end and data** — the row-level-security access model and roles that enforce public/private scope across the product, candidate de-duplication, Postgres functions and migrations, and calendar-sync consolidation.
+- **AI search** — synonym- and composition-aware skill matching behind an evaluation harness, evidence-based skill matching with quote-verified LLM extraction, the vector-recall fix, and the code-verified architecture of the ranking engine.
+- **Infrastructure and security** — immutable releases with health checks and rollback on both Hetzner VMs, server hardening, zero-downtime secret rotation, Netlify production and CI, an infrastructure audit and a security-incident review.
+- **Quality** — a large share of the 1,272-test suite, production stability scans, a performance audit, and the analytics guide that made the team measure usage from the database.
+- **Strategy and ways of working** — the product and go-to-market strategy, product guides in the help center, and the documented AI-assisted engineering workflow (agent contracts, code-verified docs) the team built with.
 
 ## Repository note
 

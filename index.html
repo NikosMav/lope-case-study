@@ -113,12 +113,12 @@ section{padding-top:64px;display:grid;gap:24px}
 .ffill{height:100%;background:var(--bar);border-radius:6px}
 .frow .n{font-family:var(--mono);text-align:right}
 
-.cadence{display:grid;grid-template-columns:repeat(17,1fr);gap:4px;align-items:end;height:170px;padding-top:18px;border-bottom:1px solid var(--line)}
+.cadence{display:grid;grid-template-columns:repeat(17,minmax(0,1fr));gap:4px;align-items:end;height:170px;padding-top:18px;border-bottom:1px solid var(--line)}
 .cb{position:relative;background:var(--bar-2);border-radius:4px 4px 0 0;min-height:2px}
 .cb.peak{background:var(--bar)}
 .cb em{position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-style:normal;font-family:var(--mono);font-size:10.5px;color:var(--muted);white-space:nowrap}
-.cadence-x{display:grid;grid-template-columns:repeat(17,1fr);gap:4px;margin-top:6px}
-.cadence-x span{font-family:var(--mono);font-size:10px;color:var(--faint);text-align:center}
+.cadence-x{display:grid;grid-template-columns:repeat(17,minmax(0,1fr));gap:4px;margin-top:6px}
+.cadence-x span{font-family:var(--mono);font-size:10px;color:var(--faint);text-align:center;white-space:nowrap;overflow:visible}
 
 /* tables */
 .tscroll{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
@@ -220,7 +220,7 @@ footer code{font-family:var(--mono);font-size:12.5px}
   <h1 class="brandmark"><svg class="logo" role="img" aria-label="Lope" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 787.91 250.73"><defs><style>.lw{fill:currentColor;}.lm{fill:url(#lopeGrad);}</style><linearGradient id="lopeGrad" x1="7.36" y1="216.91" x2="216.92" y2="7.35" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#16c6fc"/><stop offset="1" stop-color="#9e2dff"/></linearGradient></defs><path class="lw" d="M304.55,25.39H272.32v136.1a40,40,0,0,0,40,40h14.83V173.25H313.67a9.12,9.12,0,0,1-9.12-9.13Z"/><path class="lw" d="M438.94,73.86a74.93,74.93,0,0,0-71.58,0A69.2,69.2,0,0,0,341.9,98.71q-9.48,15.75-9.47,35.91t9.47,35.92a68.75,68.75,0,0,0,25.58,24.84,71.47,71.47,0,0,0,35.79,9.11,70.38,70.38,0,0,0,61-34q9.6-15.73,9.59-35.92,0-20.41-9.47-36A69.42,69.42,0,0,0,438.94,73.86Zm-3.56,81.55a36.39,36.39,0,0,1-13,14.39A35.11,35.11,0,0,1,403.27,175a35.22,35.22,0,0,1-32.59-19.56,44.34,44.34,0,0,1-4.8-20.79,43.42,43.42,0,0,1,4.8-20.78,37.39,37.39,0,0,1,13.16-14.27,35.63,35.63,0,0,1,19.43-5.29,34.59,34.59,0,0,1,19.07,5.29,37.81,37.81,0,0,1,13,14.27,43.53,43.53,0,0,1,4.79,20.78A44.45,44.45,0,0,1,435.38,155.41Z"/><path class="lw" d="M604.62,74.11a64,64,0,0,0-34.32-9.35,59.41,59.41,0,0,0-27.18,6A47.4,47.4,0,0,0,527.5,83.24h0A15.52,15.52,0,0,0,512,67.71H479.53V96H497V250.73h32.22V188.56a47.43,47.43,0,0,0,14.15,10.15,61.45,61.45,0,0,0,26.69,5.78q19.43,0,34.68-9.23a66.55,66.55,0,0,0,24.11-25.21,71.94,71.94,0,0,0,8.86-35.43,70.31,70.31,0,0,0-9-35.42A69.5,69.5,0,0,0,604.62,74.11Zm-5.29,81.42a36.81,36.81,0,0,1-13.41,14.27,38.65,38.65,0,0,1-38.62,0A35.93,35.93,0,0,1,534,155.53a44.11,44.11,0,0,1-4.8-20.91,44.35,44.35,0,0,1,4.8-20.78A35.74,35.74,0,0,1,547.3,99.45a36.34,36.34,0,0,1,19.31-5.17,35.8,35.8,0,0,1,19.31,5.29,38,38,0,0,1,13.41,14.27,42.56,42.56,0,0,1,4.92,20.78A43.24,43.24,0,0,1,599.33,155.53Z"/><path class="lw" d="M764.15,84.4a64,64,0,0,0-19.57-14.59,59.34,59.34,0,0,0-24.13-5.76q-13-.39-27.63,5.43a64.41,64.41,0,0,0-28.06,21,65.76,65.76,0,0,0-13,31.79q-2.34,17.74,5.11,36.48a73.61,73.61,0,0,0,21.09,29.74,65.18,65.18,0,0,0,31.77,14.63q17.85,3,37.06-4.67a73.14,73.14,0,0,0,21.88-13.21,61.74,61.74,0,0,0,14.13-18.06,45.55,45.55,0,0,0,5.15-20.32L759,144.57a33.76,33.76,0,0,1-6.68,16.16q-5.47,7.22-15.76,11.3a36.92,36.92,0,0,1-20.08,2.43,32.33,32.33,0,0,1-17.3-8.88A39.31,39.31,0,0,1,691.41,155L781,119.4a26.63,26.63,0,0,0-1.11-6.44c-.68-2.38-1.44-4.63-2.29-6.77A70.56,70.56,0,0,0,764.15,84.4Zm-76.33,21.09a32.51,32.51,0,0,1,14.82-11.32q9.83-3.92,18.71-1.88a28.87,28.87,0,0,1,15.24,9,31.29,31.29,0,0,1,4.91,7.31L683,131.91a39.94,39.94,0,0,1-.76-8.3A31.19,31.19,0,0,1,687.82,105.49Z"/><path class="lm" d="M206.06,74.12a100.1,100.1,0,0,0-18.78-30c-1.11-1.24-2.29-2.46-3.47-3.67s-2.42-2.35-3.67-3.47l.13-.06a15,15,0,0,1,18.29,3.69A111.35,111.35,0,0,1,213,62.28c11.65-21.8,16.43-42.46,4-54.92s-33.15-7.7-54.93,4q-5.91,3.16-11.86,6.9a344.71,344.71,0,0,0-32.87,23.93c-4.79,3.94-9.39,7.83-13.62,11.55C91.72,64.18,82.37,73.3,77.83,77.83S64.18,91.72,53.72,103.66c-3.74,4.23-7.63,8.81-11.57,13.64a71.74,71.74,0,0,1,1.12-18.62A70,70,0,0,1,98.68,43.29a408.51,408.51,0,0,1,36.75-28.68l1.15-.78A101.25,101.25,0,0,0,13.83,136.56a94.49,94.49,0,0,0,4.41,13.59,99.94,99.94,0,0,0,18.77,30c1.12,1.24,2.3,2.47,3.47,3.67s2.43,2.36,3.67,3.47l-.19.1a15.21,15.21,0,0,1-18.59-4.07,113.2,113.2,0,0,1-14-21.3c-11.66,21.8-16.44,42.47-4,54.92s33.15,7.7,54.93-4c3.91-2.09,7.89-4.4,11.85-6.89A342.15,342.15,0,0,0,107,182.12c4.8-3.94,9.41-7.83,13.63-11.54,12-10.48,21.29-19.6,25.81-24.12s13.68-13.9,24.14-25.85c3.73-4.22,7.63-8.81,11.54-13.61a70.12,70.12,0,0,1-56.52,74,413.74,413.74,0,0,1-36.73,28.65c-.38.27-.78.53-1.16.78A101.27,101.27,0,0,0,210.46,87.71,94.86,94.86,0,0,0,206.06,74.12Zm-43.4,7.36a464.44,464.44,0,0,1-38.24,43A465,465,0,0,1,81.5,162.63c-3.27,2.56-6.42,4.92-9.47,7.12a70.08,70.08,0,0,1-8.9-7.36l-1.22-1.22a70,70,0,0,1-7.37-8.92c2.21-3.05,4.56-6.19,7.1-9.46A461.56,461.56,0,0,1,99.86,99.86a465.44,465.44,0,0,1,42.93-38.22c3.27-2.56,6.43-4.92,9.48-7.12a72.4,72.4,0,0,1,8.9,7.36l1.22,1.23A67.79,67.79,0,0,1,169.75,72C167.55,75.08,165.19,78.21,162.66,81.48Z"/></svg></h1>
   <p class="thesis">An AI-native recruitment CRM that turns a role brief into a <b>ranked, explainable shortlist</b> — built by a team of three engineers and run in production with real recruiting agencies.</p>
   <div class="meta">
-    <span class="chip">Team of 3 engineers</span>
+    <span class="chip">Team of 3 · 3 repositories</span>
     <span class="chip">Built Mar 2025 → Jul 2026</span>
     <span class="chip">In production Mar → Sep 2026</span>
     <span class="chip brand">Next.js · Postgres · Milvus · LLMs · MCP</span>
@@ -237,7 +237,7 @@ footer code{font-family:var(--mono);font-size:12.5px}
     <div class="stat"><div class="v num">75<small> days</small></div><div class="k">longest customer engagement (design-partner agency)</div></div>
     <div class="stat"><div class="v num">98.7%</div><div class="k">LinkedIn enrichment success over ~3,000 profiles</div></div>
     <div class="stat"><div class="v num">22,123</div><div class="k">candidate records under management</div></div>
-    <div class="stat"><div class="v num">1,743</div><div class="k">commits across two repositories, 243 merged PRs</div></div>
+    <div class="stat"><div class="v num">1,819</div><div class="k">commits across three repositories, 243 merged PRs</div></div>
     <div class="stat"><div class="v num">1,272</div><div class="k">automated tests passing, 0 failing</div></div>
   </div>
 </section>
@@ -313,20 +313,24 @@ footer code{font-family:var(--mono);font-size:12.5px}
 
 <section aria-labelledby="arch">
   <h2 id="arch">Architecture</h2>
-  <div class="arch" role="img" aria-label="Layered architecture: clients, web platform on Netlify, backbone services on a Hetzner VM, data in Supabase Postgres and Milvus, and external AI and data providers.">
+  <div class="arch" role="img" aria-label="Layered architecture: clients; the Next.js web app and help center; an API VM running the Fastify API, hosted MCP and a durable worker; a search VM running the ranking service and Milvus; Supabase data; and external AI and data providers.">
     <div class="layer"><div class="lname">Clients</div><div class="boxes">
       <div class="box"><b>Web app</b><span>Recruiters in the browser</span></div>
       <div class="box"><b>Chrome extension</b><span>One-click LinkedIn capture</span></div>
       <div class="box"><b>AI agents</b><span>Claude · ChatGPT · Cursor · Gemini via MCP</span></div>
     </div></div>
-    <div class="layer"><div class="lname">Web platform</div><div class="boxes">
+    <div class="layer"><div class="lname">Web</div><div class="boxes">
       <div class="box"><b>Next.js 15 on Netlify</b><span>146 API routes · 47 pages · React Query · TanStack Table</span></div>
+      <div class="box"><b>Help center</b><span>Mintlify · 42 pages · public changelog</span></div>
     </div></div>
-    <div class="layer"><div class="lname">Backbone VM</div><div class="boxes">
-      <div class="box"><b>Fastify API</b><span>/v1 REST</span></div>
+    <div class="layer"><div class="lname">API VM</div><div class="boxes">
+      <div class="box"><b>Fastify API</b><span>/v1 REST · scoped API keys</span></div>
       <div class="box"><b>Hosted MCP</b><span>27 tools · OAuth 2.1</span></div>
       <div class="box"><b>Durable worker</b><span>Leased Scout &amp; indexing jobs</span></div>
-      <div class="box hl"><b>Search engine</b><span>JobBERT · 5 Milvus collections · Borda fusion</span></div>
+    </div></div>
+    <div class="layer"><div class="lname">Search VM</div><div class="boxes">
+      <div class="box hl"><b>Ranking service</b><span>FastAPI · JobBERT + cross-encoder resident · grouped Borda fusion</span></div>
+      <div class="box"><b>Milvus 2.6</b><span>8 collections · MinIO · etcd · private ports only</span></div>
     </div></div>
     <div class="layer"><div class="lname">Data</div><div class="boxes">
       <div class="box"><b>Supabase Postgres 15</b><span>60+ tables · RLS on every table · hierarchical access functions</span></div>
@@ -341,12 +345,12 @@ footer code{font-family:var(--mono);font-size:12.5px}
   </div>
 
   <div class="decisions" style="margin-top:12px">
-    <div class="decision"><h3>Domain-specific retrieval</h3><p>Each candidate is embedded with JobBERT into five collections — title, skills, experience, location, industry. Each criterion is searched separately and fused by rank aggregation, so every result carries its own sub-scores: that's what makes it explainable.</p></div>
+    <div class="decision"><h3>Multi-signal, explainable retrieval</h3><p>Job titles are matched three ways at once — OpenAI embeddings, JobBERT (a model trained on job titles) and BM25 keywords — fused and then reranked by a cross-encoder. Skills, location, experience and industry each have their own index: eight Milvus collections feed five scored dimensions, merged by grouped Borda rank aggregation. Every result keeps its per-dimension scores, which is what makes it explainable.</p></div>
     <div class="decision"><h3>The LLM is never the control plane</h3><p>Guided Search, the industry resolver and salary explanations share one pattern: code owns decisions, the model handles fuzzy language, and every output snaps back to a validated value. The rewrite replaced a 961-line state machine and an agent loop.</p></div>
     <div class="decision"><h3>Hallucination-proof by construction</h3><p>The industry resolver runs exact → fuzzy (Postgres trigram) → LLM choosing only from the stored taxonomy. Salary numbers are computed, never generated. Interview-chat citations are checked server-side before they render.</p></div>
     <div class="decision"><h3>Multi-tenant all the way down</h3><p>Row-level security on every table, with public/private scope enforced through a chain of access functions from teamspace to interview; vectors isolated per environment in separate Milvus databases.</p></div>
     <div class="decision"><h3>Model routing by cost</h3><p>Nano models classify, mini models extract, larger models reason, a dedicated model does OCR; content-hash caching means identical inputs are never billed twice.</p></div>
-    <div class="decision"><h3>Production discipline</h3><p>Durable, lease-based background jobs instead of long serverless calls; immutable commit-addressed releases on the VM behind a Cloudflare Tunnel with no public ports on internal services.</p></div>
+    <div class="decision"><h3>Production discipline</h3><p>Two Hetzner VMs — product API and search — each on immutable, commit-addressed releases with health checks and rollback. Key-only SSH, firewalls, internal database ports closed to the internet, zero-downtime secret rotation, and a Cloudflare Tunnel in front of the API.</p></div>
   </div>
 </section>
 
@@ -424,6 +428,8 @@ footer code{font-family:var(--mono);font-size:12.5px}
 
   <div class="decisions">
     <div class="decision"><h3>A/B test: query construction</h3><p>A controlled experiment against the external talent API proved the "current + past role" logic correct (11 ⊂ 15 results, none dropped) and traced an apparent bug to <b>LLM non-determinism</b> in synonym generation — so synonyms were pinned. The same run measured an industry-filter leak (<b>7 of 11</b> off-target) and validated the fix (<b>4 of 4</b> on-target).</p></div>
+    <div class="decision"><h3>Evidence-based skill matching</h3><p>Skills are credited from a profile's own words, not just its skill tags. A deterministic extractor plus an LLM pass whose every answer must quote the profile verbatim and map to a curated vocabulary: <b>1,345</b> production candidates gained evidence, and audits found <b>0 unverifiable quotes and 0 off-vocabulary skills</b> across 855 LLM-inferred matches — for about $0.50 of backfill.</p></div>
+    <div class="decision"><h3>Synonym-aware skills</h3><p>A curated equivalence layer made "JS" match JavaScript and "SQL Databases" match SQL plus Databases, with guardrails so non-decomposable skills never split. Released behind a before/after evaluation harness and a dev gate.</p></div>
     <div class="decision"><h3>Incidents turned into guarantees</h3><p>When an indexing endpoint returned success without writing vectors, we wrote an indexing contract, made responses per-candidate honest and added a rank-time backstop. When a recall bug hid candidates in unprobed vector clusters, we pinned the search parameters — at a cost of about 1.6 ms per query.</p></div>
   </div>
 </section>
@@ -448,10 +454,10 @@ footer code{font-family:var(--mono);font-size:12.5px}
     <div class="tl"><span class="d">Sep–Oct 2025</span><p>Enrichment pipeline, company scraping, CV parsing, Kanban, LinkedIn Chrome extension.</p></div>
     <div class="tl key"><span class="d">Nov 2025</span><p>AI Scout and shortlists ship; search-engine repo starts <span>(JobBERT + Milvus).</span></p></div>
     <div class="tl"><span class="d">Feb 2026</span><p>Vector search engine integrated into production.</p></div>
-    <div class="tl key"><span class="d">Mar 2026</span><p>Public launch — first external recruiters sign up.</p></div>
+    <div class="tl key"><span class="d">Mar 2026</span><p>Public launch — first external recruiters sign up; Chrome extension published on the Chrome Web Store.</p></div>
     <div class="tl"><span class="d">May 2026</span><p>Lope MCP server; move to a dedicated backbone VM.</p></div>
-    <div class="tl"><span class="d">Jun 2026</span><p>External talent search, public share links, salary bands, guided onboarding.</p></div>
-    <div class="tl key"><span class="d">Jul 2026</span><p>Design-partner agency onboarded; Guided Search rewrite, Companies intelligence, interview collaboration. <span>Busiest month: 253 commits.</span></p></div>
+    <div class="tl"><span class="d">Jun 2026</span><p>Lope MCP opens to customers; external talent search, public share links, guided onboarding.</p></div>
+    <div class="tl key"><span class="d">Jul 2026</span><p>Design-partner agency onboarded; Search Agent, Companies intelligence, interview collaboration, evidence-based skill matching. <span>Busiest month: 253 commits.</span></p></div>
     <div class="tl"><span class="d">Sep 2026</span><p>Paused, with the product intact and documented.</p></div>
   </div>
 </section>
@@ -463,6 +469,19 @@ footer code{font-family:var(--mono);font-size:12.5px}
     <div class="plan"><span class="label">Free</span><div class="price">$0</div><ul><li>5 searches / month</li><li>2 interview hours</li></ul></div>
     <div class="plan mid"><span class="label">Pro</span><div class="price">$79<small> / seat / mo</small></div><ul><li>50 searches · 20 interview hours</li><li>61% → 75% contribution margin</li></ul></div>
     <div class="plan"><span class="label">Business</span><div class="price">$149<small> / seat / mo</small></div><ul><li>100 searches · 40 interview hours</li><li>60% → 74% contribution margin</li></ul></div>
+  </div>
+</section>
+
+<section aria-labelledby="role">
+  <div class="group-title"><h2 id="role">My role</h2><span class="label">Nikos Mavrapidis · co-founder &amp; engineer</span></div>
+  <p class="intro">I worked across the whole platform — product, front end, back end, data, AI search, infrastructure and documentation — and was the most active contributor in both code repositories: <b>622 of 1,649</b> platform commits and <b>45 of 94</b> search-engine commits.</p>
+  <div class="features">
+    <div class="feature"><span class="tag">Product &amp; front end</span><h3>The recruiter workspace</h3><p>Candidate data grid and Kanban pipeline, candidate sheet, side-by-side comparison, CSV import, shortlist review and sharing, guided onboarding, Companies intelligence, interview collaboration, and the marketing site.</p></div>
+    <div class="feature"><span class="tag">Back end &amp; data</span><h3>Access control and data integrity</h3><p>The row-level-security access model and roles that enforce public/private scope across the product, candidate de-duplication, Postgres functions and migrations, and calendar-sync consolidation.</p></div>
+    <div class="feature"><span class="tag">AI search</span><h3>Ranking quality</h3><p>Synonym- and composition-aware skill matching behind an evaluation harness; evidence-based skill matching with quote-verified LLM extraction; the vector-recall fix; and the code-verified architecture of the ranking engine.</p></div>
+    <div class="feature"><span class="tag">Infrastructure &amp; security</span><h3>Production operations</h3><p>Immutable releases with health checks and rollback on both Hetzner VMs, server hardening, zero-downtime secret rotation, Netlify production and CI, an infrastructure audit and a security-incident review.</p></div>
+    <div class="feature"><span class="tag">Quality</span><h3>Tests and reliability</h3><p>A large share of the 1,272-test suite, production stability scans, a performance audit, and the analytics reading guide that made the team measure usage from the database.</p></div>
+    <div class="feature"><span class="tag">Product &amp; ways of working</span><h3>Strategy and AI-assisted engineering</h3><p>The product and go-to-market strategy, product guides in the help center, and the documented AI-assisted engineering workflow — agent contracts and code-verified docs — the team built with.</p></div>
   </div>
 </section>
 
