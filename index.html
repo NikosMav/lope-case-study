@@ -59,8 +59,7 @@ p{margin:0}
 .num{font-variant-numeric:tabular-nums}
 
 /* header */
-header{display:grid;gap:22px;padding-bottom:36px;position:relative}
-header::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;border-radius:2px;background:var(--grad)}
+header{display:grid;gap:22px;padding-bottom:36px}
 .thesis{font-size:clamp(18px,2.4vw,22px);color:var(--muted);max-width:62ch}
 .thesis b{color:var(--ink);font-weight:600}
 .meta{display:flex;flex-wrap:wrap;gap:10px}
@@ -144,12 +143,15 @@ td.r,th.r{text-align:right}
 .legend i{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-1px;margin-right:6px}
 
 /* timeline */
-.timeline{display:grid;gap:0;border-left:2px solid var(--line);margin-left:6px}
-.tl{display:grid;grid-template-columns:110px 1fr;gap:16px;padding:0 0 18px 20px;position:relative}
-.tl::before{content:"";position:absolute;left:-7px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--surface);border:2px solid var(--brand)}
-.tl.key::before{background:var(--grad);border-color:transparent}
-.tl .d{font-family:var(--mono);font-size:13px;color:var(--muted);padding-top:1px}
-.tl p{font-size:15px}
+.timeline{display:grid;gap:0}
+.tl{--dcol:132px;display:grid;grid-template-columns:var(--dcol) 20px 1fr;column-gap:14px;position:relative;padding-bottom:22px}
+.tl:last-child{padding-bottom:0}
+.tl::before{content:"";position:absolute;z-index:1;left:calc(var(--dcol) + 18px);top:5px;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--brand)}
+.tl.key::before{border-color:transparent;background:var(--grad) border-box}
+.tl::after{content:"";position:absolute;left:calc(var(--dcol) + 23px);top:17px;bottom:-5px;width:2px;background:var(--line)}
+.tl:last-child::after{display:none}
+.tl .d{grid-column:1;font-family:var(--mono);font-size:13px;line-height:22px;color:var(--muted);text-align:right;white-space:nowrap}
+.tl p{grid-column:3;font-size:15px;line-height:22px}
 .tl p span{color:var(--muted)}
 
 /* lessons */
@@ -196,7 +198,10 @@ footer code{font-family:var(--mono);font-size:12.5px}
   .frow{grid-template-columns:120px 1fr 40px}
   .cadence em{display:none}
   .cadence-x span:nth-child(even){visibility:hidden}
-  .tl{grid-template-columns:1fr;gap:2px}
+  .tl{--dcol:0px;grid-template-columns:20px 1fr;column-gap:12px}
+  .tl::before{left:4px}
+  .tl::after{left:9px}
+  .tl .d,.tl p{grid-column:2;text-align:left}
   .reel,.gallery{grid-template-columns:1fr}
   .lrow{grid-template-columns:1fr auto}
   .lrow .ltrack{grid-column:1 / -1;grid-row:2}
