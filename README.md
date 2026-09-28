@@ -80,7 +80,7 @@ The one known limit: on a single CPU-only VM the engine served concurrent search
 
 | AI Scout in production | |
 | --- | --- |
-| Searches run (all accounts, including internal and test) | **243** · 95.9% completed |
+| Searches run | **243** · 95.9% completed |
 | Customers' internal and mixed searches | **100%** completed |
 | Median search for customers, end to end | **11.2 s** |
 
