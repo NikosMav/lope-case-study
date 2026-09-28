@@ -28,7 +28,7 @@ Lope's bet was to bring every source into **one candidate profile**, then rank w
 | **External talent database** | AI Scout's external and mixed searches import and enrich new profiles (799 sourced by customers) |
 | **CVs** | OCR plus structured extraction, one at a time or as a bulk ZIP upload |
 | **GitHub** | Public repositories, languages and commit activity |
-| **Interviews** | Calendar sync creates candidates from meetings (228 so far), and the meeting bot adds transcripts, AI reports and team comments |
+| **Interviews** | Calendar sync creates candidates from meetings (228), and the meeting bot adds transcripts, AI reports and team comments |
 | **CSV and manual entry** | CSV import with field mapping, manual adds, custom fields |
 
 AI Scout ranks candidates on the structured profile built from LinkedIn data. CV, GitHub and interview evidence appears in the candidate sheet, the interview chat and candidate reports. Bringing that evidence into the ranking was the next planned step.
@@ -119,7 +119,7 @@ Everything around the search, ranked by importance. Each feature gets candidates
 | Feature | What it does | Status |
 | --- | --- | --- |
 | **Criteria and filter tuning** | Suggested criteria, must-have vs optional skills, advanced weights, current/recent/full-career title matching, years of experience in a specific role, and industry inferred from a company name | ✅ Shipped |
-| **Skill inference** | Credits skills a profile shows in its own words and displays the quote behind each one. An LLM may only answer with a verbatim quote and a skill from a curated list | ✅ Shipped in the final week (July 2026). 1,345 candidates gained evidence, 0 unverifiable quotes in audit |
+| **Skill inference** | Credits skills a profile shows in its own words and displays the quote behind each one. An LLM may only answer with a verbatim quote and a skill from a curated list | ✅ Shipped in July 2026, the last month of active development. 1,345 candidates gained evidence, 0 unverifiable quotes in audit |
 | **CSV and CV import** | CSV upload with field mapping; CV parsing with OCR and structured extraction, including bulk ZIP uploads | ✅ Shipped |
 | **Salary estimation** | A salary band per role and candidate, computed from market data, with an AI explanation that is not allowed to produce numbers | 🟡 Partial. Greek market bands live; company-level adjustment unfinished |
 | **Candidate tracking** | Watches LinkedIn for job changes, promotions, new skills and five other kinds of change, with in-app and email notifications | ✅ Shipped, lightly used |
@@ -193,7 +193,7 @@ Three repositories: the platform, the search engine and the help center. 1,819 c
 
 ## My role
 
-*Nikos Mavrapidis, co-founder.* I worked across the whole platform (product, front end, back end, data, AI search, infrastructure and documentation) and was the most active contributor in both code repositories: 622 of 1,649 platform commits and 45 of 94 search-engine commits.
+*Nikos Mavrapidis · co-founder, Oct 2025 – Sep 2026 (part-time, alongside SoftCom); contributor from Mar 2025.* I worked across the whole platform (product, front end, back end, data, AI search, infrastructure and documentation) and was the most active contributor in both code repositories: 622 of 1,649 platform commits and 45 of 94 search-engine commits.
 
 - **AI Scout and search quality** (AI search): skill matching that understands synonyms and composite skills, tested against a before/after evaluation harness; evidence-based skill inference; the vector-recall fix; the code-verified architecture of the ranking engine.
 - **The recruiter workspace** (product and front end): candidate grid and Kanban pipeline, candidate sheet, Companies, shortlist review and sharing, interview collaboration, CSV import and guided onboarding.
