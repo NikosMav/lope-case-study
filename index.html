@@ -23,7 +23,7 @@ html,body{margin:0}
   --line:#E2E5F0; --brand:#5F74FE; --brand-ink:#3A4AB3; --brand-soft:#ECEFFF;
   --good:#16734F; --good-soft:#E3F5EC; --warn:#8A5A12; --warn-soft:#FBF1DF;
   --bar:#5F74FE; --bar-2:#C3CBFF;
-  --measure:64ch; --measure-wide:72ch; --nav-h:48px;
+  --measure:58ch; --measure-wide:64ch; --nav-h:48px;
   --media-dim:none;
   --serif:"Instrument Serif",Georgia,"Times New Roman",serif;
   --sans:"DM Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
@@ -79,6 +79,7 @@ section{padding-top:64px;display:grid;gap:24px}
 section > *{min-width:0}
 .intro{max-width:var(--measure);color:var(--muted)}
 .intro.stack-y{display:grid;gap:14px}
+.intro h3{color:var(--ink)}
 .intro b{color:var(--ink);font-weight:600}
 
 /* stat tiles */
@@ -112,7 +113,7 @@ section > *{min-width:0}
 .box b{display:block;font-weight:600;font-size:14.5px}
 .box span{color:var(--muted);font-size:13px}
 .box.hl{border-color:var(--brand);box-shadow:0 0 0 3px var(--brand-soft)}
-.decisions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 32px}
+.decisions{margin-top:12px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 32px}
 .decision h3{margin-bottom:4px}
 .decision p{color:var(--muted);font-size:15px}
 
@@ -140,7 +141,7 @@ td.r,th.r{text-align:right}
 .lp95{position:absolute;left:0;top:0;height:100%;background:var(--bar-2);border-radius:6px}
 .lp50{position:absolute;left:0;top:5px;height:16px;background:var(--bar);border-radius:4px}
 .lval{position:absolute;top:4px;font-family:var(--mono);font-size:12px;color:var(--ink);white-space:nowrap}
-.legend{display:flex;gap:16px;font-size:13px;color:var(--muted);flex-wrap:wrap}
+.legend{display:flex;gap:16px;margin-top:14px;font-size:13px;color:var(--muted);flex-wrap:wrap}
 .legend i{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-1px;margin-right:6px}
 
 
@@ -158,8 +159,8 @@ td.r,th.r{text-align:right}
 .clip video,.shot img{display:block;width:100%;max-width:100%;height:auto;border-radius:12px;border:1px solid var(--line);background:#0b0d18;filter:var(--media-dim)}
 .clip video{aspect-ratio:16 / 9}
 .clip .cap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline}
-.clip .cap h3{font-size:16px}
-.clip .cap span{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.clip .cap h3{font-size:16px;min-width:0}
+.clip .cap span{flex:none;font-family:var(--mono);font-size:12px;color:var(--muted)}
 .clip p{color:var(--muted);font-size:14.5px;max-width:var(--measure)}
 .shot{margin:0;display:grid;gap:8px}
 .shot.wide{grid-column:1 / -1}
@@ -167,16 +168,16 @@ td.r,th.r{text-align:right}
 .shot figcaption b{color:var(--ink);font-weight:600}
 
 /* skill inference recreation */
-.si-card{background:#fff;color:#1B1D27;border:1px solid #E4E6EE;border-radius:14px;padding:18px;display:grid;gap:10px;font-family:var(--sans);box-shadow:0 1px 2px rgba(20,22,41,.04);filter:var(--media-dim)}
+.si-card{background:var(--lp-s1);color:var(--lp-tp);border:1px solid var(--lp-bs);border-radius:14px;padding:18px;display:grid;gap:10px;font-family:var(--lp-ui);box-shadow:var(--lp-panel-shadow)}
 .si-head{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:baseline}
 .si-title{font-size:14px;font-weight:600}
-.si-q{font-family:var(--mono);font-size:12px;color:#6B6F80}
+.si-q{font-family:var(--lp-inter);font-size:12px;color:var(--lp-tm)}
 .si-chips{display:flex;flex-wrap:wrap;gap:6px}
-.sc{display:inline-flex;align-items:center;gap:4px;font-size:12px;line-height:1.35;padding:2px 7px;border-radius:5px;border:1px solid #E4E6EE;background:#F7F8FA;color:#4A4E5E}
-.sc.m{background:#D4E5DF;border-color:#1E3E39;color:#1E3E39;border-width:.7px}
+.sc{display:inline-flex;align-items:center;gap:4px;font-size:12px;line-height:1.35;padding:2px 7px;border-radius:5px;border:1px solid var(--lp-bs);background:var(--lp-sel);color:var(--lp-ts)}
+.sc.m{background:var(--lp-g-bg);border-color:var(--lp-g-dot);color:var(--lp-g-tx)}
 .si-inf{display:flex;align-items:center;gap:6px;font-size:14px;margin-top:4px}
 .spk{flex:none;width:12px;height:12px;color:#5F74FE;fill:currentColor}
-.si-tip{background:#1B1D27;color:#F3F4F8;border-radius:8px;padding:10px 12px;display:grid;gap:6px;font-size:12.5px;line-height:1.35;max-width:380px}
+.si-tip{background:var(--lp-inv-bg);color:var(--lp-inv-tx);border-radius:8px;padding:10px 12px;display:grid;gap:6px;font-size:12.5px;line-height:1.35;max-width:380px}
 .si-tip .tt{font-size:12px;margin:0 0 2px}
 .si-tip p{margin:0}
 .si-tip .o{opacity:.7}
@@ -201,30 +202,46 @@ td.r,th.r{text-align:right}
 
 /* salary + tracking recreations */
 .si-card.mini{gap:9px;padding:16px;align-content:start}
+.lp-yrs{gap:12px;align-content:start;font-size:13px}
+.lp-yrs-t{display:block;font-size:14px;font-weight:600}
+.lp-yrs-s{display:block;font-size:12.5px;color:var(--lp-tm)}
+.lp-yrs-opts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.lp-yrs-opts span{display:grid;gap:2px;padding:8px 9px;border:1px solid var(--lp-bs);border-radius:8px;font-size:11.5px;line-height:1.35;color:var(--lp-tm)}
+.lp-yrs-opts b{font-size:12.5px;font-weight:500;color:var(--lp-tp)}
+.lp-yrs-opts .on{background:var(--lp-sel);border-color:var(--lp-bst)}
+.lp-yrs-opts .off{opacity:.55}
+.lp-yrs-opts i{font-style:normal;font-size:11px;font-weight:500;margin-left:4px;padding:0 5px;border-radius:4px;background:var(--lp-sel);color:var(--lp-tm)}
+.lp-yrs-note{margin:0;padding:7px 10px;border-radius:7px;background:var(--lp-sel);font-size:12.5px;color:var(--lp-ts)}
+.lp-yrs-note b,.lp-yrs-foot b{font-weight:600;color:var(--lp-tp)}
+.lp-yrs-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:13px;color:var(--lp-ts)}
+.lp-yrs-sel,.lp-yrs-step{display:inline-flex;align-items:center;height:30px;padding:0 10px;border:1px solid var(--lp-bs);border-radius:7px;background:var(--lp-s1);color:var(--lp-tp)}
+.lp-yrs-step{gap:14px;padding:0 8px;font-weight:500}
+.lp-yrs-step i{font-style:normal;color:var(--lp-tm)}
+.lp-yrs-foot{margin:0;font-size:12.5px;color:var(--lp-ts)}
 .reel .shot{align-content:start}
-.mk{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#6B6F80}
-.sal-band{display:inline-flex;align-items:center;gap:9px;justify-self:start;background:#F4F5F8;border:1px solid #E4E6EE;border-radius:9px;padding:8px 12px}
+.mk{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--lp-tm)}
+.sal-band{display:inline-flex;align-items:center;gap:9px;justify-self:start;background:var(--lp-sel);border:1px solid var(--lp-bs);border-radius:9px;padding:8px 12px}
 .sal-band b{display:block;font-size:14px;font-weight:600}
-.sal-band span{display:block;font-size:12px;color:#6B6F80}
-.sal-ic,.trk-ic,.ev-ic{display:grid;place-items:center;color:#4A4E5E}
+.sal-band span{display:block;font-size:12px;color:var(--lp-tm)}
+.sal-ic,.trk-ic,.ev-ic{display:grid;place-items:center;color:var(--lp-ts)}
 .sal-ic svg,.trk-ic svg{width:17px;height:17px}
-.sal-why{font-size:12.5px;color:#4A4E5E}
-.drv{font-size:12px;padding:2px 9px;border-radius:999px;background:#F4F5F8;border:1px solid #E4E6EE;color:#6B6F80}
-.trk-row{display:flex;align-items:center;gap:10px;background:rgba(0,0,0,.04);border:.5px solid rgba(0,0,0,.25);border-radius:6px;padding:9px 12px}
+.sal-why{font-size:12.5px;color:var(--lp-ts)}
+.drv{font-size:12px;padding:2px 9px;border-radius:999px;background:var(--lp-sel);border:1px solid var(--lp-bs);color:var(--lp-tm)}
+.trk-row{display:flex;align-items:center;gap:10px;background:color-mix(in srgb,var(--lp-tp) 4%,transparent);border:.5px solid color-mix(in srgb,var(--lp-tp) 25%,transparent);border-radius:6px;padding:9px 12px}
 .trk-row b{display:block;font-size:13.5px;font-weight:600}
-.trk-row div span{display:block;font-size:12px;color:#6B6F80}
+.trk-row div span{display:block;font-size:12px;color:var(--lp-tm)}
 .trk-row div{flex:1;min-width:0}
 .trk-row.sm{padding:7px 12px}
-.trk-l{flex:1;font-size:12px;color:#4A4E5E}
-.trk-sel{font-size:12px;background:rgba(0,0,0,.06);border-radius:4px;padding:3px 14px}
-.sw{flex:none;width:30px;height:17px;border-radius:999px;background:#1B1D27;position:relative}
-.sw::after{content:"";position:absolute;right:2px;top:2px;width:13px;height:13px;border-radius:50%;background:#fff}
+.trk-l{flex:1;font-size:12px;color:var(--lp-ts)}
+.trk-sel{font-size:12px;background:color-mix(in srgb,var(--lp-tp) 6%,transparent);border-radius:4px;padding:3px 14px}
+.sw{flex:none;width:30px;height:17px;border-radius:999px;background:var(--lp-tp);position:relative}
+.sw::after{content:"";position:absolute;right:2px;top:2px;width:13px;height:13px;border-radius:50%;background:var(--lp-s1)}
 .ev{display:flex;gap:10px}
-.ev-ic{flex:none;width:28px;height:28px;border-radius:50%;background:#ECEDF2}
+.ev-ic{flex:none;width:28px;height:28px;border-radius:50%;background:var(--lp-sel)}
 .ev-ic svg{width:14px;height:14px}
 .ev p{font-size:12.5px;margin:1px 0 0}
 .ev b{font-weight:600}
-.ev-t{font-size:12px;color:#6B6F80}
+.ev-t{font-size:12px;color:var(--lp-tm)}
 /* sources */
 .sources-wrap{display:grid;gap:14px;margin-top:8px}
 .sources{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
@@ -243,6 +260,9 @@ td.r,th.r{text-align:right}
 .way b{color:var(--ink);font-weight:600}
 table.ftable{min-width:680px}
 .ftable td{vertical-align:top}
+.ftable[data-collapsed] tr.more{display:none}
+.more-btn{justify-self:start;display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1px solid var(--line);border-radius:10px;background:var(--surface);font:600 14px/1.2 var(--sans);color:var(--ink);cursor:pointer}
+.more-btn:hover{border-color:var(--brand)}
 .ftable td:first-child{white-space:nowrap}
 .ftable td:nth-child(2){color:var(--muted)}
 .ftable td:last-child{min-width:190px}
@@ -252,6 +272,16 @@ table.ftable{min-width:680px}
 .st.part{background:var(--warn-soft);color:var(--warn)}
 .sn{display:block;margin-top:6px;font-size:13px;line-height:1.4;color:var(--muted)}
 .stack-details{display:grid;gap:24px}
+.feat-details{display:grid}
+.feat-details summary{cursor:pointer;list-style:none;padding:4px 0}
+.feat-details summary::-webkit-details-marker{display:none}
+.feat-details .toggle{display:inline-flex;align-items:center;gap:6px;color:var(--brand-ink)}
+.feat-details .toggle svg{width:14px;height:14px;transition:transform .2s cubic-bezier(.2,.8,.2,1)}
+.feat-details[open] .toggle svg{transform:rotate(180deg)}
+.feat-details .when-open,.feat-details[open] .when-closed{display:none}
+.feat-details[open] .when-open{display:inline}
+.feat-details[open] > .tscroll{margin-top:12px}
+.feat-details > .intro{margin-top:16px}
 .stack-details summary{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;cursor:pointer;list-style:none}
 .stack-details summary::-webkit-details-marker{display:none}
 .stack-details summary .label{color:var(--brand-ink)}
@@ -270,47 +300,48 @@ footer code{font-family:var(--mono);font-size:12.5px}
 
 /* section index */
 .toc{position:sticky;top:0;z-index:10;margin-inline:-20px;padding-inline:20px;background:var(--paper);border-bottom:1px solid var(--line)}
-.toc ol{list-style:none;margin:0;padding:0;display:flex;align-items:center;gap:2px;height:var(--nav-h);overflow-x:auto;scrollbar-width:none}
+.toc ol{list-style:none;margin:0 -4px;padding:0 4px;display:flex;align-items:center;gap:2px;height:var(--nav-h);overflow-x:auto;scrollbar-width:none}
 .toc ol::-webkit-scrollbar{display:none}
 .toc a{display:flex;align-items:center;min-height:36px;white-space:nowrap;padding:0 10px;border-radius:8px;font-size:13.5px;font-weight:500;color:var(--muted);text-decoration:none}
 .toc a:hover{color:var(--ink);background:var(--surface)}
-.toc a[aria-current="true"]{color:var(--brand-ink);background:var(--brand-soft)}
+.toc a[aria-current="location"]{color:var(--brand-ink);background:var(--brand-soft)}
 .toc .home{padding:0 10px 0 0;color:var(--ink)}
 .toc .home:hover{background:none;color:var(--brand)}
 .toc .home svg{width:20px;height:20px;fill:currentColor}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 
 /* AI Scout recreation: tokens and measurements from LopeProd globals.css and the AI Scout components */
-.lp{
-  --lp-bg:#F4F4F4; --lp-s1:#FFFFFF; --lp-sunken:#F9F8F7; --lp-tp:#2C2C2B; --lp-ts:#5F5E5C; --lp-tm:#91918E;
+.lp,.si-card{
+  --lp-bg:#F4F4F4; --lp-s1:#FFFFFF; --lp-sunken:#F9F8F7; --lp-tp:#2C2C2B; --lp-ts:#5F5E5C; --lp-tm:#6B6B68;
   --lp-bs:#E5E5E0; --lp-bd:#E1E2E3; --lp-bst:#CACACA; --lp-sel:#F2F1F0; --lp-shell:rgba(0,0,0,.12);
-  --lp-run:#4075C7; --lp-run-b:#2D2D2D; --lp-tab-off:#9F9C99;
+  --lp-run:#4075C7; --lp-run-b:#2D2D2D; --lp-tab-off:#6B6B68;
+  --lp-inv-bg:#2C2C2B; --lp-inv-tx:#F4F4F4;
   --lp-g-bg:#D4E5DF; --lp-g-tx:#1E3E39; --lp-g-dot:#61977D; --lp-g-av:#C2DDD3;
   --lp-o-bg:#F5DDD0; --lp-o-tx:#4A2A14; --lp-o-dot:#D4845A; --lp-o-av:#EDCFBE;
   --lp-r-bg:#F5D0D0; --lp-r-tx:#4A1414;
   --lp-card-shadow:inset 0 1px 2px rgba(0,0,0,.045);
   --lp-panel-shadow:0 1px 2px rgba(0,0,0,.05),0 3px 12px -4px rgba(28,32,49,.07);
   --lp-ui:"Plus Jakarta Sans",var(--sans); --lp-inter:Inter,var(--sans);
-  font-family:var(--lp-ui);color:var(--lp-tp);background:var(--lp-bg);border:1px solid var(--line);border-radius:14px;overflow:hidden;line-height:1.5
 }
+.lp{font-family:var(--lp-ui);color:var(--lp-tp);background:var(--lp-bg);border:1px solid var(--line);border-radius:14px;overflow:hidden;line-height:1.5}
 @media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]) .lp{
-    --lp-bg:#0B0B0E; --lp-s1:#141418; --lp-sunken:#09090C; --lp-tp:#ECECEA; --lp-ts:#B3B3B0; --lp-tm:#7C7C78;
+  :root:not([data-theme="light"]) .lp,:root:not([data-theme="light"]) .si-card{
+    --lp-bg:#0B0B0E; --lp-s1:#141418; --lp-sunken:#09090C; --lp-tp:#ECECEA; --lp-ts:#B3B3B0; --lp-tm:#8F8F8A;
     --lp-bs:#26262B; --lp-bd:#2E2E34; --lp-bst:#3B3B42; --lp-sel:#1F1F25; --lp-shell:rgba(255,255,255,.1);
-    --lp-run:#4465C9; --lp-tab-off:#7C7C78;
+    --lp-run:#4465C9; --lp-tab-off:#8F8F8A; --lp-inv-bg:#ECECEA; --lp-inv-tx:#141418;
     --lp-g-bg:color-mix(in srgb,#22C55E 9%,#1C1C22); --lp-g-tx:color-mix(in srgb,#B3B3B0 84%,#86EFAC); --lp-g-dot:color-mix(in srgb,#7C7C78 45%,#22C55E); --lp-g-av:color-mix(in srgb,#22C55E 7%,#1C1C22);
-    --lp-o-bg:color-mix(in srgb,#FF9143 11%,#1C1C22); --lp-o-tx:color-mix(in srgb,#B3B3B0 76%,#FDBA74); --lp-o-dot:color-mix(in srgb,#7C7C78 38%,#FF9143); --lp-o-av:color-mix(in srgb,#FF9143 9%,#1C1C22);
-    --lp-r-bg:color-mix(in srgb,#F87171 9%,#1C1C22); --lp-r-tx:color-mix(in srgb,#B3B3B0 78%,#FCA5A5);
+    --lp-o-bg:color-mix(in srgb,#FF9143 11%,#1C1C22); --lp-o-tx:color-mix(in srgb,#B3B3B0 45%,#FDBA74); --lp-o-dot:color-mix(in srgb,#7C7C78 38%,#FF9143); --lp-o-av:color-mix(in srgb,#FF9143 9%,#1C1C22);
+    --lp-r-bg:color-mix(in srgb,#F87171 15%,#1C1C22); --lp-r-tx:color-mix(in srgb,#B3B3B0 35%,#FCA5A5);
     --lp-card-shadow:inset 0 4px 7.6px -6px rgba(236,236,234,.12); --lp-panel-shadow:0 1px 2px rgba(0,0,0,.4),0 4px 12px -4px rgba(0,0,0,.55);
   }
 }
-:root[data-theme="dark"] .lp{
-  --lp-bg:#0B0B0E; --lp-s1:#141418; --lp-sunken:#09090C; --lp-tp:#ECECEA; --lp-ts:#B3B3B0; --lp-tm:#7C7C78;
+:root[data-theme="dark"] .lp,:root[data-theme="dark"] .si-card{
+  --lp-bg:#0B0B0E; --lp-s1:#141418; --lp-sunken:#09090C; --lp-tp:#ECECEA; --lp-ts:#B3B3B0; --lp-tm:#8F8F8A;
   --lp-bs:#26262B; --lp-bd:#2E2E34; --lp-bst:#3B3B42; --lp-sel:#1F1F25; --lp-shell:rgba(255,255,255,.1);
-  --lp-run:#4465C9; --lp-tab-off:#7C7C78;
+  --lp-run:#4465C9; --lp-tab-off:#8F8F8A; --lp-inv-bg:#ECECEA; --lp-inv-tx:#141418;
   --lp-g-bg:color-mix(in srgb,#22C55E 9%,#1C1C22); --lp-g-tx:color-mix(in srgb,#B3B3B0 84%,#86EFAC); --lp-g-dot:color-mix(in srgb,#7C7C78 45%,#22C55E); --lp-g-av:color-mix(in srgb,#22C55E 7%,#1C1C22);
-  --lp-o-bg:color-mix(in srgb,#FF9143 11%,#1C1C22); --lp-o-tx:color-mix(in srgb,#B3B3B0 76%,#FDBA74); --lp-o-dot:color-mix(in srgb,#7C7C78 38%,#FF9143); --lp-o-av:color-mix(in srgb,#FF9143 9%,#1C1C22);
-  --lp-r-bg:color-mix(in srgb,#F87171 9%,#1C1C22); --lp-r-tx:color-mix(in srgb,#B3B3B0 78%,#FCA5A5);
+  --lp-o-bg:color-mix(in srgb,#FF9143 11%,#1C1C22); --lp-o-tx:color-mix(in srgb,#B3B3B0 45%,#FDBA74); --lp-o-dot:color-mix(in srgb,#7C7C78 38%,#FF9143); --lp-o-av:color-mix(in srgb,#FF9143 9%,#1C1C22);
+  --lp-r-bg:color-mix(in srgb,#F87171 15%,#1C1C22); --lp-r-tx:color-mix(in srgb,#B3B3B0 35%,#FCA5A5);
   --lp-card-shadow:inset 0 4px 7.6px -6px rgba(236,236,234,.12); --lp-panel-shadow:0 1px 2px rgba(0,0,0,.4),0 4px 12px -4px rgba(0,0,0,.55);
 }
 .lp svg{flex:none}
@@ -401,11 +432,11 @@ footer code{font-family:var(--mono);font-size:12.5px}
 .lp-sum-h span .ic{width:16px;height:16px}
 .lp-panel{position:relative;margin:0;padding:14px 46px 14px 16px;border:.8px solid var(--lp-bs);border-radius:10px;background:var(--lp-s1);box-shadow:var(--lp-panel-shadow);font:400 14px/1.62 var(--lp-inter);color:var(--lp-tp)}
 .lp-panel .lp-copy{position:absolute;top:8px;right:8px;width:16px;height:16px;margin:4px;color:var(--lp-ts)}
-.hl{padding:2px 7px;border-radius:6px;font-size:.92em;font-weight:500;-webkit-box-decoration-break:clone;box-decoration-break:clone}
-.hl sup{margin-left:1px;font-size:.62em;font-weight:600;opacity:.55}
-.hl.g{background:var(--lp-g-bg);color:var(--lp-g-tx)}
-.hl.o{background:var(--lp-o-bg);color:var(--lp-o-tx)}
-.hl.r{background:var(--lp-r-bg);color:var(--lp-r-tx)}
+.lp-hl{padding:2px 7px;border-radius:6px;font-size:.92em;font-weight:500;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.lp-hl sup{margin-left:1px;font-size:.62em;font-weight:600;opacity:.55}
+.lp-hl.g{background:var(--lp-g-bg);color:var(--lp-g-tx)}
+.lp-hl.o{background:var(--lp-o-bg);color:var(--lp-o-tx)}
+.lp-hl.r{background:var(--lp-r-bg);color:var(--lp-r-tx)}
 .lp-fig{margin:0;display:grid;gap:10px}
 .lp-fig figcaption{font-size:14px;color:var(--muted);max-width:var(--measure)}
 .lp-fig figcaption b{color:var(--ink);font-weight:600}
@@ -418,6 +449,7 @@ footer code{font-family:var(--mono);font-size:12.5px}
 @media (max-width:760px){
   .sources{grid-template-columns:1fr}
   .stats{--cols:2}
+  .stats.trio{--cols:2}
   .stats.trio .stat:last-child{grid-column:1 / -1}
   .split,.decisions,.ways{grid-template-columns:1fr}
   .features{grid-template-columns:1fr}
@@ -430,6 +462,8 @@ footer code{font-family:var(--mono);font-size:12.5px}
   .reel{grid-template-columns:1fr}
   .lrow{grid-template-columns:1fr auto}
   .lrow .ltrack{grid-column:1 / -1;grid-row:2}
+  .toc a{min-height:44px}
+  .clip .cap{flex-wrap:nowrap}
   .toc ol{-webkit-mask-image:linear-gradient(90deg,#000 88%,transparent);mask-image:linear-gradient(90deg,#000 88%,transparent);padding-right:24px}
   /* feature tables become stacked rows */
   .tscroll{overflow:visible}
@@ -442,13 +476,17 @@ footer code{font-family:var(--mono);font-size:12.5px}
   .ftable td:first-child{white-space:normal}
   .ftable td:last-child{min-width:0;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px}
   .ftable .sn{margin-top:0}
+  .lp-yrs-opts{grid-template-columns:1fr}
 }
 @media (max-width:760px){
   .lp-body{padding:22px 14px 24px}
   .lp-results{padding:14px}
   .lp-res{grid-template-columns:1fr;gap:10px}
   .lp-av{width:58px;height:58px;font-size:36px}
-  .lp-info{padding-right:112px}
+  .lp-card{display:flex;flex-direction:column}
+  .lp-card-h{order:-1}
+  .lp-badge{position:static;align-self:flex-start;margin:-2px 0 8px 80px}
+  .lp-info{padding-right:0}
   .lp-sum-h b{font-size:15px}
   .lp-info b{font-size:15px}
   .lp-info .t{font-size:13px}
@@ -467,7 +505,7 @@ footer code{font-family:var(--mono);font-size:12.5px}
   <p class="thesis">A recruitment CRM built around <b>AI Scout</b>, which turns a role brief into a <b>ranked shortlist that explains every candidate</b>. Built by three co-founders and run in production with recruiting agencies.</p>
   <div class="meta">
     <span class="chip">Team of 3 · 3 repositories</span>
-    <span class="chip">Built Mar 2025 → Jul 2026</span>
+    <span class="chip">Mar 2025 → Jul 2026</span>
     <span class="chip paused">Paused · Sep 2026</span>
   </div>
   <div class="links">
@@ -481,11 +519,11 @@ footer code{font-family:var(--mono);font-size:12.5px}
     <li><a class="home" href="#top"><svg aria-hidden="true" viewBox="0 0 357.76 357.69"><use href="#lope-mark"/></svg><span class="sr-only">Back to top</span></a></li>
     <li><a href="#problem">The idea</a></li>
     <li><a href="#scout">AI Scout</a></li>
-    <li><a href="#workspace">Workspace</a></li>
-    <li><a href="#smaller">More features</a></li>
-    <li><a href="#traction">Results</a></li>
+    <li><a href="#workspace">Recruiter workspace</a></li>
+    <li><a href="#smaller">Smaller features</a></li>
+    <li><a href="#traction">Results in production</a></li>
     <li><a href="#arch">How it was built</a></li>
-    <li><a href="#lessons">Lessons</a></li>
+    <li><a href="#lessons">What we learned</a></li>
     <li><a href="#role">My role</a></li>
   </ol>
 </nav>
@@ -530,8 +568,9 @@ footer code{font-family:var(--mono);font-size:12.5px}
   <div class="group-title"><h2 id="scout">AI Scout</h2><span class="label">the core of the product</span></div>
   <p class="intro">A recruiter writes a brief such as <i>“Senior backend engineer in Athens, 6+ years, Python and Kubernetes, fintech background.”</i> AI Scout turns it into structured, editable criteria, searches, and returns a ranked list in which each candidate shows <b>what matched and what's missing</b>.</p>
   <figure class="lp-fig">
-    <div class="lp">
-      <div class="lp-top" aria-hidden="true"><span class="lp-ws">AW</span>Agency Workspace<span class="sep">/</span><svg class="ic" aria-hidden="true"><use href="#lp-scout-ic"/></svg>AI Scout<span class="sep">/</span><span class="cur">New search</span></div>
+    <p class="sr-only">Recreated AI Scout screen. The brief reads: Senior backend engineer in Athens, 6+ years, Python and Kubernetes, fintech background. AI Scout has turned it into filters (Senior Backend Engineer plus 4 related titles, Athens plus 1 nearby location, at least 6 years of experience, Python and Kubernetes, and the Financial Services industry) and asks whether to change anything before running the search.</p>
+    <div class="lp" aria-hidden="true">
+      <div class="lp-top"><span class="lp-ws">AW</span>Agency Workspace<span class="sep">/</span><svg class="ic" aria-hidden="true"><use href="#lp-scout-ic"/></svg>AI Scout<span class="sep">/</span><span class="cur">New search</span></div>
       <div class="lp-body"><div class="lp-stage">
         <p class="lp-h">What does your ideal candidate look like?</p>
         <div class="lp-modes" aria-hidden="true"><span class="on"><svg class="ic" aria-hidden="true"><use href="#lp-search"/></svg>Search by prompt</span><span><svg class="ic" aria-hidden="true"><use href="#lp-brief"/></svg>Search based on job</span></div>
@@ -552,7 +591,8 @@ footer code{font-family:var(--mono);font-size:12.5px}
     <figcaption><b>The brief, read back.</b> AI Scout turns the sentence into filters (title synonyms, location, years, skills and industry) and asks before it searches. Recreated from the product's AI Scout screen, with illustrative data.</figcaption>
   </figure>
   <figure class="lp-fig">
-    <div class="lp">
+    <p class="sr-only">Recreated AI Scout results for that brief. First, Eleni Georgiou, Senior Backend Engineer in Athens, an 88.6% match: location, title, 7.4 years of experience and both required skills match; her company is only partly aligned with Financial Services. Second, Giorgos Petridis, Backend Developer in Thessaloniki, a 72.4% match: the title and industry match, but he is outside the target location, has 5.1 years against the 6 required, and has 1 of the 2 required skills, missing Kubernetes.</p>
+    <div class="lp" aria-hidden="true">
       <div class="lp-top" aria-hidden="true"><span class="lp-ws">AW</span>Agency Workspace<span class="sep">/</span><svg class="ic" aria-hidden="true"><use href="#lp-scout-ic"/></svg>AI Scout<span class="sep">/</span><span class="cur">Senior backend engineer in Athens, 6+ years, Python and Kubernetes, fintech background.</span></div>
       <div class="lp-results">
         <div class="lp-rhead">
@@ -569,7 +609,7 @@ footer code{font-family:var(--mono);font-size:12.5px}
           </div>
           <div class="lp-sum">
             <div class="lp-sum-h"><svg class="ic" aria-hidden="true"><use href="#lp-feather"/></svg><b>Short summary</b><span><svg class="ic" aria-hidden="true"><use href="#lp-sync"/></svg>Last synced: 14/09/2026</span></div>
-            <p class="lp-panel">Excellent match across 5 criteria (88.6%). Based in <span class="hl g">Athens, Attiki, Greece<sup>¹</sup></span>, which matches your location criteria. Currently <span class="hl g">Senior Backend Engineer<sup>¹</sup></span>, a strong match with your search. Has <span class="hl g">7.4 years of experience<sup>¹</sup></span>, meeting your &gt;= 6 requirement. Has <span class="hl g">all 2 required skills: Python and Kubernetes<sup>¹</sup></span>, with none missing. Works at <span class="hl o">Northwind Traders<sup>²</sup></span>, partially aligned with Financial Services.<svg class="ic lp-copy" aria-hidden="true"><use href="#lp-copy"/></svg></p>
+            <p class="lp-panel">Excellent match across 5 criteria (88.6%). Based in <span class="lp-hl g">Athens, Attiki, Greece<sup>¹</sup></span>, which matches your location criteria. Currently <span class="lp-hl g">Senior Backend Engineer<sup>¹</sup></span>, a strong match with your search. Has <span class="lp-hl g">7.4 years of experience<sup>¹</sup></span>, meeting your &gt;= 6 requirement. Has <span class="lp-hl g">all 2 required skills: Python and Kubernetes<sup>¹</sup></span>, with none missing. Works at <span class="lp-hl o">Northwind Traders<sup>²</sup></span>, partially aligned with Financial Services.<svg class="ic lp-copy" aria-hidden="true"><use href="#lp-copy"/></svg></p>
           </div>
         </div>
         <div class="lp-res o">
@@ -581,12 +621,12 @@ footer code{font-family:var(--mono);font-size:12.5px}
           </div>
           <div class="lp-sum">
             <div class="lp-sum-h"><svg class="ic" aria-hidden="true"><use href="#lp-feather"/></svg><b>Short summary</b><span><svg class="ic" aria-hidden="true"><use href="#lp-sync"/></svg>Last synced: 02/09/2026</span></div>
-            <p class="lp-panel">Good match across 5 criteria (72.4%). Based in <span class="hl r">Thessaloniki, Central Macedonia, Greece<sup>¹</sup></span>, outside your target location (Athens). Currently <span class="hl g">Backend Developer<sup>¹</sup></span>, a strong match with your search. Has <span class="hl o">5.1 years of experience<sup>¹</sup></span>, slightly below your &gt;= 6 requirement. Has <span class="hl o">1 of 2 required skills (Python)<sup>¹</sup></span>, missing Kubernetes. Works at <span class="hl g">Contoso Bank in the Financial Services sector<sup>²</sup></span>, a strong industry alignment.<svg class="ic lp-copy" aria-hidden="true"><use href="#lp-copy"/></svg></p>
+            <p class="lp-panel">Good match across 5 criteria (72.4%). Based in <span class="lp-hl r">Thessaloniki, Central Macedonia, Greece<sup>¹</sup></span>, outside your target location (Athens). Currently <span class="lp-hl g">Backend Developer<sup>¹</sup></span>, a strong match with your search. Has <span class="lp-hl o">5.1 years of experience<sup>¹</sup></span>, slightly below your &gt;= 6 requirement. Has <span class="lp-hl o">1 of 2 required skills (Python)<sup>¹</sup></span>, missing Kubernetes. Works at <span class="lp-hl g">Contoso Bank in the Financial Services sector<sup>²</sup></span>, a strong industry alignment.<svg class="ic lp-copy" aria-hidden="true"><use href="#lp-copy"/></svg></p>
           </div>
         </div>
       </div>
     </div>
-    <figcaption><b>The explained results.</b> Every candidate gets a match score and a short summary that marks each criterion: green where it matched, orange where it partly did, red where it didn't. Recreated from the product's results list, with illustrative data.</figcaption>
+    <figcaption><b>The explained results.</b> Every candidate gets a match score and a short summary that marks each criterion: green where it matched, orange where it partly did, red where it didn't. The small numbers name the source: ¹ the candidate's LinkedIn profile, ² company data. Recreated from the product's results list, with illustrative data.</figcaption>
   </figure>
 
   <div class="clip">
@@ -612,11 +652,11 @@ footer code{font-family:var(--mono);font-size:12.5px}
 
   <div class="split">
     <div class="intro stack-y">
-      <h3 style="color:var(--ink)">How the ranking works</h3>
+      <h3>How the ranking works</h3>
       <p>In short: AI Scout scores every criterion separately and only then combines the scores, so it can always show why a candidate ranks where they do.</p>
       <p>Each criterion is scored on its own. Job titles are matched three ways (OpenAI embeddings, <b>JobBERT</b>, a model trained on job titles, and BM25 keywords), fused, then reranked by a cross-encoder. Skills, location, experience and industry each have their own index.</p>
       <p><b>Eight Milvus collections</b> feed <b>five scored dimensions</b>, merged by grouped Borda rank aggregation. Because every result keeps its per-dimension scores, each ranking can be explained.</p>
-      <p>The one known limit: on a single CPU-only VM the engine served concurrent searches one at a time, which was fine for pilot traffic. GPU inference was the planned next step.</p>
+      <p>The one known limit: on a single CPU-only VM the engine served concurrent searches one at a time, which was fine for pilot traffic.</p>
     </div>
     <div class="card">
       <div class="chart-title"><span class="label">Engine latency by pool size</span><span class="label">live · 23 Sep 2026</span></div>
@@ -625,7 +665,7 @@ footer code{font-family:var(--mono);font-size:12.5px}
         <div class="lrow"><span class="num">500 candidates</span><div class="ltrack"><div class="lp95" style="width:72.5%"></div><div class="lp50" style="width:17.5%"></div></div><span class="lv num">3.5 s · 14.5 s</span></div>
         <div class="lrow"><span class="num">1,000 candidates</span><div class="ltrack"><div class="lp95" style="width:86%"></div><div class="lp50" style="width:24%"></div></div><span class="lv num">4.8 s · 17.2 s</span></div>
       </div>
-      <div class="legend" style="margin-top:14px"><span><i style="background:var(--bar)"></i>p50</span><span><i style="background:var(--bar-2)"></i>p95</span><span>0–20 s scale · 0 errors in 103 requests</span></div>
+      <div class="legend"><span><i style="background:var(--bar)"></i>median (p50)</span><span><i style="background:var(--bar-2)"></i>slowest 5% (p95)</span><span>0–20 s scale · 0 errors in 103 requests</span></div>
     </div>
   </div>
 
@@ -640,21 +680,22 @@ footer code{font-family:var(--mono);font-size:12.5px}
   <h2 id="workspace">The recruiter workspace</h2>
   <p class="intro">Everything around the search, ranked by importance. Each feature gets candidates into Lope, acts on what AI Scout finds, or, in the case of <b>Lope MCP</b>, brings the whole CRM into the AI assistants recruiters already use.</p>
   <div class="tscroll">
-    <table class="ftable">
+    <table class="ftable" id="ws-table">
       <thead><tr><th>Feature</th><th>What it does</th><th>Status</th></tr></thead>
       <tbody>
         <tr><td><b>Interviews</b></td><td>Google and Microsoft calendar sync, a meeting bot for Meet and Teams, speaker-separated transcripts, editable AI reports from templates, and a chat whose citations are checked against the transcript.</td><td><span class="st ok">Shipped</span><span class="sn">Most-used by volume: 1,510 interviews synced</span></td></tr>
         <tr><td><b>Shortlists</b></td><td>Candidates evaluated and ranked against a versioned client brief, with a read-only client link that hides private notes.</td><td><span class="st ok">Shipped</span><span class="sn">701 AI evaluations at 99.0% success · 68 shared links</span></td></tr>
         <tr><td><b>Lope MCP</b></td><td>A hosted Model Context Protocol server: add one URL in Claude, ChatGPT, Cursor or Gemini, sign in, and search candidates, run AI Scout, manage shortlists and read interviews from the assistant. 27 tools, OAuth 2.1 with scoped permissions.</td><td><span class="st ok">Shipped</span><span class="sn">Works with Claude, ChatGPT, Cursor and Gemini</span></td></tr>
         <tr><td><b>Candidate &amp; company sheets</b></td><td>One profile per candidate combining LinkedIn, GitHub, CV and interview data, with an AI summary across all of them, next to a company sheet with firmographics.</td><td><span class="st ok">Shipped</span><span class="sn">LinkedIn enrichment 98.7% over ~3,000 profiles</span></td></tr>
-        <tr><td><b>Jobs</b></td><td>Client → Job hierarchy. A job description becomes an editable AI Scout search, with advanced weights.</td><td><span class="st ok">Shipped</span></td></tr>
-        <tr><td><b>Chrome extension</b></td><td>A LinkedIn side panel that spots candidates already in your database and adds new ones, including bulk adds from Recruiter Lite.</td><td><span class="st ok">Shipped</span><span class="sn">Published on the Chrome Web Store</span></td></tr>
-        <tr><td><b>Google &amp; Microsoft accounts</b></td><td>Sign in with Google or Microsoft, then connect the work calendar that drives interview sync.</td><td><span class="st ok">Shipped</span><span class="sn">13 of 23 recruiters connected a calendar</span></td></tr>
-        <tr><td><b>Companies</b></td><td>“Recruit-from” pages: where your candidates work today, which companies are already clients, and firmographics.</td><td><span class="st part">Shipped late</span><span class="sn">July 2026; talent-flow panel never built</span></td></tr>
-        <tr><td><b>Collaboration</b></td><td>Interview comments with @mentions, an activity feed and external share links, on top of public/private access with roles enforced in the database.</td><td><span class="st part">Partial</span><span class="sn">Interviews only; follow-up tasks and threaded comments not built</span></td></tr>
+        <tr class="more"><td><b>Jobs</b></td><td>Client → Job hierarchy. A job description becomes an editable AI Scout search, with advanced weights.</td><td><span class="st ok">Shipped</span></td></tr>
+        <tr class="more"><td><b>Chrome extension</b></td><td>A LinkedIn side panel that spots candidates already in your database and adds new ones, including bulk adds from Recruiter Lite.</td><td><span class="st ok">Shipped</span><span class="sn">Published on the Chrome Web Store</span></td></tr>
+        <tr class="more"><td><b>Google &amp; Microsoft accounts</b></td><td>Sign in with Google or Microsoft, then connect the work calendar that drives interview sync.</td><td><span class="st ok">Shipped</span><span class="sn">13 of 23 recruiters connected a calendar</span></td></tr>
+        <tr class="more"><td><b>Companies</b></td><td>“Recruit-from” pages: where your candidates work today, which companies are already clients, and firmographics.</td><td><span class="st part">Shipped late</span><span class="sn">July 2026; talent-flow panel never built</span></td></tr>
+        <tr class="more"><td><b>Collaboration</b></td><td>Interview comments with @mentions, an activity feed and external share links, on top of public/private access with roles enforced in the database.</td><td><span class="st part">Partial</span><span class="sn">Interviews only; follow-up tasks and threaded comments not built</span></td></tr>
       </tbody>
     </table>
   </div>
+  <button type="button" class="more-btn" aria-controls="ws-table" aria-expanded="false" hidden>Show 5 more features</button>
 
   <div class="reel">
     <div class="clip">
@@ -679,6 +720,8 @@ footer code{font-family:var(--mono);font-size:12.5px}
 
 <section aria-labelledby="smaller">
   <h2 id="smaller">Smaller features</h2>
+  <details class="feat-details">
+    <summary><span class="label toggle">5 features · <span class="when-closed">show</span><span class="when-open">hide</span><svg aria-hidden="true"><use href="#i-chev"/></svg></span></summary>
   <div class="tscroll">
     <table class="ftable">
       <thead><tr><th>Feature</th><th>What it does</th><th>Status</th></tr></thead>
@@ -692,6 +735,7 @@ footer code{font-family:var(--mono);font-size:12.5px}
     </table>
   </div>
   <p class="intro">Also in the product: custom candidate fields, a 7-stage pipeline as a table and Kanban board, API keys, guided onboarding, and a help center with a public changelog.</p>
+  </details>
 
   <div class="reel">
     <figure class="shot">
@@ -727,7 +771,21 @@ footer code{font-family:var(--mono);font-size:12.5px}
       </div>
       <figcaption><b>Salary estimation.</b> The band is computed; the AI only explains where the profile sits. Recreated with illustrative data.</figcaption>
     </figure>
-    <figure class="shot"><a href="assets/filter-years-by-title.png" aria-label="Open the filter screenshot at full size"><img src="assets/filter-years-by-title.png" alt="Years of experience filter measured against a specific job title: at least 6 years as Full-stack Software Engineer." width="1131" height="277" loading="lazy"></a><figcaption><b>Filter tuning.</b> Count only the years spent in the role you're hiring for, not the whole career.</figcaption></figure>
+    <figure class="shot">
+      <div class="si-card lp-yrs" aria-hidden="true">
+        <div><b class="lp-yrs-t">Years of Experience</b><span class="lp-yrs-s">Choose what this requirement is measured against.</span></div>
+        <div class="lp-yrs-opts">
+          <span><b>Total experience</b>Whole career, across every role.</span>
+          <span class="on"><b>As a job title</b>Time spent specifically in this role.</span>
+          <span class="off"><b>In an industry <i>Soon</i></b>Time spent within this sector.</span>
+        </div>
+        <p class="lp-yrs-note">Counts only time spent as <b>Full-stack Software Engineer</b>, summed across every matching role.</p>
+        <div class="lp-yrs-row">Experience<span class="lp-yrs-sel">is at least</span><span class="lp-yrs-step"><i>−</i>6<i>+</i></span>years</div>
+        <p class="lp-yrs-foot">Showing candidates with <b>at least 6 years of experience</b>.</p>
+      </div>
+      <p class="sr-only">Recreated years-of-experience filter: the requirement is measured as time spent as a Full-stack Software Engineer, at least 6 years, rather than across the whole career.</p>
+      <figcaption><b>Filter tuning.</b> Count only the years spent in the role you're hiring for, not the whole career. Recreated from the product's filter, with illustrative data.</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -784,7 +842,7 @@ footer code{font-family:var(--mono);font-size:12.5px}
     </div></div>
   </div>
 
-  <div class="decisions" style="margin-top:12px">
+  <div class="decisions">
     <div class="decision"><h3>Explainable by construction</h3><p>The ranking keeps a separate score for each criterion, so the explanation comes from the same numbers that produced the order.</p></div>
     <div class="decision"><h3>Code decides; the model reads language</h3><p>The Search Agent, the industry resolver and salary explanations work this way, and every model output is snapped back to a validated value. Salary figures are computed, never generated, and interview-chat citations are checked on the server before they render.</p></div>
     <div class="decision"><h3>Multi-tenant all the way down</h3><p>Row-level security on every table, with public/private visibility enforced from teamspace down to a single interview. The search engine ranks only the candidates the product sends it and never decides who may see what.</p></div>
@@ -905,8 +963,6 @@ footer code{font-family:var(--mono);font-size:12.5px}
   <h2 id="next">Where it stopped</h2>
   <p class="intro">Lope was paused in September 2026 and the production service has been wound down. Two steps were next: bringing CV, GitHub and interview evidence into AI Scout's ranking, and GPU inference for the search engine, which served concurrent searches one at a time on its CPU-only VM.</p>
   <div class="links">
-    <a href="https://www.withlope.com/" target="_blank" rel="noopener"><svg viewBox="0 0 357.76 357.69" aria-hidden="true"><use href="#lope-mark"/></svg>withlope.com</a>
-    <a class="li" href="https://www.linkedin.com/company/withlope" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#lg-fa6-falinkedin"/></svg>Lope on LinkedIn</a>
     <a href="https://github.com/NikosMav/lope-case-study"><svg aria-hidden="true"><use href="#lg-si-sigithub"/></svg>This case study on GitHub</a>
   </div>
   <p class="credits">Built by <a href="https://github.com/NikosMav">Nikos Mavrapidis</a>, <a href="https://github.com/dfwteinos">Dimitrios Foteinos</a> and <a href="https://github.com/Anastasios084">Anastasios Melidonis</a>.</p>
@@ -931,17 +987,30 @@ footer code{font-family:var(--mono);font-size:12.5px}
     current?.removeAttribute('aria-current');
     current = a;
     if (!a) return;
-    a.setAttribute('aria-current', 'true');
+    a.setAttribute('aria-current', 'location');
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
     list.scrollTo({ left: Math.max(0, a.offsetLeft - (list.clientWidth - a.offsetWidth) / 2), behavior: reduce ? 'auto' : 'smooth' });
   };
   const inView = new Set();
   const io = new IntersectionObserver(changes => {
     changes.forEach(c => (c.isIntersecting ? inView.add(c.target) : inView.delete(c.target)));
-    setCurrent(entries.find(e => inView.has(e.section))?.a ?? null);
+    const hit = entries.find(e => inView.has(e.section));
+    if (hit) setCurrent(hit.a);
+    else if (scrollY < entries[0].section.offsetTop - innerHeight / 2) setCurrent(null);
   }, { rootMargin: '-25% 0px -65% 0px' });
   entries.forEach(e => io.observe(e.section));
 })();
+document.querySelectorAll('.more-btn').forEach(btn => {
+  const table = document.getElementById(btn.getAttribute('aria-controls'));
+  const label = btn.textContent;
+  table.setAttribute('data-collapsed', '');
+  btn.hidden = false;
+  btn.addEventListener('click', () => {
+    const collapsed = table.toggleAttribute('data-collapsed');
+    btn.setAttribute('aria-expanded', String(!collapsed));
+    btn.textContent = collapsed ? label : 'Show fewer features';
+  });
+});
 </script>
 
 </body>
